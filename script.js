@@ -1,0 +1,93 @@
+const boxes = document.querySelectorAll(".box");
+
+const player1 = document.querySelector("#player1");
+const player2 = document.querySelector("#player2");
+
+const win = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+let count = 0;
+
+let disableAll = (Player) => {
+    boxes.forEach(
+        (box) => box.addEventListener("click",function(){
+            alert(`Winner is ${Player}`);
+            return;
+        })
+    )
+}
+
+let checkwinner = () => {
+  for (let key of win) {
+    let pos1Val = boxes[key[0]].textContent;
+    let pos2Val = boxes[key[1]].textContent;
+    let pos3Val = boxes[key[2]].textContent;
+
+    if (
+      pos1Val != "" &&
+      pos2Val != "" &&
+      pos3Val != ""
+    ) {
+      if (
+        pos1Val == pos2Val &&
+        pos2Val == pos3Val
+      ) {
+        if (count % 2 != 0) {
+          console.log("Winner is Player1");
+          disableAll();
+        } else {
+          console.log("Winner is Player2");
+          disableAll();
+        }
+      }
+    }
+  }
+};
+
+player1.style.backgroundColor = "aqua";
+player1.style.border = "none";
+player1.innerHTML = "<h3>Player1 your turn</h3>";
+
+boxes.forEach((box) => {
+  box.addEventListener("click", function () {
+    // Prevent clicking a box that already has content
+    if (box.textContent !== "") {
+      alert("It's already clicked");
+      return;
+    }
+
+    if (count % 2 === 0) {
+      // Player 1's turn
+      box.textContent = "X";
+      player2.style.backgroundColor = "aqua";
+      player2.style.border = "none";
+      player2.innerHTML = "<h3>Player2 your turn</h3>";
+
+      player1.style.backgroundColor = "";
+      player1.style.border = "2px solid gray";
+      player1.innerHTML = "";
+    } else {
+      // Player 2's turn
+      box.textContent = "O";
+      player1.style.backgroundColor = "aqua";
+      player1.style.border = "none";
+      player1.innerHTML = "<h3>Player1 your turn</h3>";
+
+      player2.style.backgroundColor = "";
+      player2.style.border = "2px solid gray";
+      player2.innerHTML = "";
+    }
+
+    count++;
+
+    checkwinner();
+  });
+});

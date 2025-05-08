@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    border: 2px solid red;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.container {
+    border: 2px solid red;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    height: 80%;
+    width: 20%;
+    table-layout: fixed;
+}
+
+td {
+    background-color: aqua;
+    text-align: center;
+    font-size: 2rem;
+    height: 33.33%;
+    width: 33.33%;
+}
+
+#player1 {
+    border-top-right-radius: 100% 50%;
+    border-bottom-right-radius: 100% 50%;
+    height: 90%;
+    width: 10%;
+    /* background-color: aqua; */
+    border: 2px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player2 {
+    border-top-left-radius: 100% 50%;
+    border-bottom-left-radius: 100% 50%;
+    height: 90%;
+    width: 10%;
+    /* background-color: aqua; */
+    border: 2px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
