@@ -6,6 +6,12 @@ const player2 = document.querySelector("#player2");
 const startBt = document.querySelector("#start");
 const blurView = document.querySelector(".blur");
 
+const name1 = document.querySelector("#name1");
+const name2 = document.querySelector("#name2");
+
+let Player1;
+let Player2;
+
 let newGame = () => {
   console.log("New Game");
   window.location.reload();
@@ -35,10 +41,10 @@ let checkwinner = () => {
         blurView.classList.add("winner");
         if (count % 2 == 0) {
           console.log("Winner is Player1");
-          blurView.innerHTML = `<h2>Wohoo!!</h2><h3>....Winner is Player 1....</h3><button onclick="newGame()">New Game</button>`;
+          blurView.innerHTML = `<h2>Wohoo!!</h2><h3>....Winner is ${Player1}....</h3><button onclick="newGame()">New Game</button>`;
         } else {
           console.log("Winner is Player2");
-          blurView.innerHTML = `<h2>Wohoo!!</h2><h3>....Winner is Player 2....</h3><button onclick="newGame()">New Game</button>`;
+          blurView.innerHTML = `<h2>Wohoo!!</h2><h3>....Winner is ${Player2}....</h3><button onclick="newGame()">New Game</button>`;
         }
       }
     }
@@ -47,10 +53,17 @@ let checkwinner = () => {
 
 //Start the game
 startBt.addEventListener("click", function () {
-  blurView.classList.add("unblur");
-  player1.style.backgroundColor = "aqua";
-  player1.style.border = "none";
-  player1.innerHTML = "<h3>Your turn</h3>";
+  Player1 = name1.value;
+  Player2 = name2.value;
+  if (Player1 === "" || Player2 === "") {
+    alert("Please enter your name to start the game.");
+  } else {
+    blurView.classList.add("unblur");
+    player1.style.backgroundColor = "aqua";
+    player1.style.border = "none";
+    player1.innerHTML = "<h3>Your turn</h3>";
+    player2.innerHTML = `<h3>${Player2}</h3>`;
+  }
 });
 
 //Game main logic
@@ -71,7 +84,7 @@ boxes.forEach((box) => {
 
       player1.style.backgroundColor = "";
       player1.style.border = "2px solid gray";
-      player1.innerHTML = "<h3>Player1</h3>";
+      player1.innerHTML = `<h3>${Player1}</h3>`;
     } else {
       // Player 2's turn
       box.textContent = "O";
@@ -81,7 +94,7 @@ boxes.forEach((box) => {
 
       player2.style.backgroundColor = "";
       player2.style.border = "2px solid gray";
-      player2.innerHTML = "<h3>Player2</h3>";
+      player2.innerHTML = `<h3>${Player2}</h3>`;
     }
 
     checkwinner();
