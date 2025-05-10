@@ -135,3 +135,14 @@ td {
     justify-content: center;
     align-items: center;
 }
+
+#reset {
+    margin: 1rem;
+    padding: 0.2rem;
+    height: 3em;
+    width: 5em;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgb(245, 116, 69);
+    border: none;
+}

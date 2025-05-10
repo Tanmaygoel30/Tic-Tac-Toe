@@ -12,6 +12,9 @@ const name2 = document.querySelector("#name2");
 let Player1;
 let Player2;
 
+const reset = document.querySelector("#reset");
+
+
 let newGame = () => {
   console.log("New Game");
   window.location.reload();
@@ -64,6 +67,21 @@ startBt.addEventListener("click", function () {
     player1.innerHTML = "<h3>Your turn</h3>";
     player2.innerHTML = `<h3>${Player2}</h3>`;
   }
+});
+
+//Reset the game
+reset.addEventListener("click", function () {
+  boxes.forEach((box) => {
+    box.textContent = "";
+  });
+  count = 0;
+  player1.style.backgroundColor = "aqua";
+  player1.style.border = "none";
+  player1.innerHTML = "<h3>Your turn</h3>";
+
+  player2.style.backgroundColor = "";
+  player2.style.border = "2px solid gray";
+  player2.innerHTML = `<h3>${Player2}</h3>`;
 });
 
 //Game main logic
