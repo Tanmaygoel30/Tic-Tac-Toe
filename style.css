@@ -26,6 +26,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+}
+
+#inBlur {
+    display: none;
 }
 
 .unblur {
@@ -124,6 +129,13 @@ td {
     align-items: center;
 }
 
+#player1 h3, #player2 h3 {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 90%;
+}
+
 #player2 {
     border-top-left-radius: 100% 50%;
     border-bottom-left-radius: 100% 50%;
@@ -145,4 +157,67 @@ td {
     border-radius: 5px;
     background-color: rgb(245, 116, 69);
     border: none;
+}
+
+#mobReset {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    #inBlur { 
+        font-size: 3em;
+        display: block;
+    }
+
+    #outBlur {
+        display: none;
+    }
+
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    table {
+        height: 40%;
+        width: 40%;
+    }
+
+    #player1 {
+        height: 18%;
+        width: 40%;
+        border-bottom-left-radius: 50% 100%;
+        border-bottom-right-radius: 50% 100%; 
+        border-top-right-radius: 0;
+    }
+
+    #player2 {
+        height: 18%;
+        width: 40%;
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        border-bottom-left-radius: 0;
+    }
+
+    #reset {
+        display: none;
+    }
+
+    #mobReset {
+        display: inline-block;
+        padding: 0.2rem;
+        height: 2.5em;
+        width: 4em;
+        font-size: 18px;
+        border-radius: 5px;
+        background-color: rgb(245, 116, 69);
+        border: none;
+        position: absolute;
+        top: 50%;
+        right: 0; 
+    }
 }
