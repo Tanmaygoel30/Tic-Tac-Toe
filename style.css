@@ -221,3 +221,86 @@ td {
         right: 0; 
     }
 }
+
+@media (max-width: 360px){
+    .winner h2 {
+        font-size: 3.2em;
+    }
+
+    .winner h3 {
+        font-size: 1.5em;
+    }
+
+    .winner button {
+        margin: 1rem;
+        padding: 0.2rem;
+        height: 3em;
+        width: 6em;
+        font-size: 18px;
+        border-radius: 5px;
+        background-color: rgb(34, 172, 34);
+        border: none;
+    }  
+}
+
+@media (max-width: 250px),(max-height: 320px) {
+    #inBlur {
+        font-size: 2em;
+        margin-bottom: 0.2em;
+    }
+
+    #name1 {
+        margin: 0.2rem;
+        height: 2em;
+        width: 10em;
+        padding: 0.2rem;
+    }
+
+    #name2 {
+        margin: 0.2rem;
+        height: 2em;
+        width: 10em;
+        padding: 0.2rem; 
+    }
+
+    #start {
+        margin: 0.4rem;
+        padding: 0.1rem;
+        height: 2em;
+        width: 3.7em;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: rgb(34, 172, 34);
+        border: none;   
+    }
+
+    td {
+        font-size: 1.3rem;
+    }
+
+    .winner h2 {
+        font-size: 2.5em;
+    }
+
+    .winner h3 {
+        font-size: 1em;
+    }
+
+    .winner button {
+        margin: 0.5rem;
+        padding: 0.1rem;
+        height: 2.5em;
+        width: 5em;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: rgb(34, 172, 34);
+        border: none;
+    }
+
+    #mobReset {
+        padding: 0.1rem;
+        height: 2em;
+        width: 3em;
+        font-size: 16px;
+    }
+}
