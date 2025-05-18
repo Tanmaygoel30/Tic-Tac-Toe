@@ -14,7 +14,7 @@ let Player2;
 
 const reset = document.querySelector("#reset");
 const mobReset = document.querySelector("#mobReset");
-
+let flag = false;
 
 let newGame = () => {
   console.log("New Game");
@@ -42,6 +42,7 @@ let checkwinner = () => {
 
     if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
       if (pos1Val == pos2Val && pos2Val == pos3Val) {
+        flag = true;
         blurView.classList.add("winner");
         if (count % 2 == 0) {
           console.log("Winner is Player1");
@@ -131,6 +132,16 @@ boxes.forEach((box) => {
     }
 
     checkwinner();
+
+    // Game Over (...boxes converts boxes into a real array)
+    if ([...boxes].every((box) => box.textContent != "")) {
+      if (flag) {
+        console.log("Winner Found");
+      } else {
+        blurView.classList.add("winner");
+        blurView.innerHTML = `<h2>OOPS!!</h2><h3>Game Over</h3><button onclick="newGame()">New Game</button>`;
+      }
+    }
 
     count++;
   });
